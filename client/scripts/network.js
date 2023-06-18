@@ -522,10 +522,17 @@ class Events {
 
 RTCPeer.config = {
     'sdpSemantics': 'unified-plan',
-    'iceServers': [{
-        urls: 'stun:stun.l.google.com:19302'
-    },
-    {
-        urls: 'stun:stun.' + window.location.host + ':3478'
-    }]
+    'iceServers': [
+        // {
+        //     urls: 'stun:stun.l.google.com:19302'
+        // },
+        {
+            urls: 'stun:stun.' + window.location.host + ':3478'
+        },
+        {
+            urls: 'turn:turn.' + window.location.host + ':3478',
+            username: "username",
+            credential: "password",
+        }
+    ]
 }
